@@ -49,6 +49,7 @@ mkdocs-macros-plugin = ">=0.6.3"
 mkdocs-material = ">=8"
 mkdocstrings = {version=">=0.19.0", extras=["python"]}
 mkdocstrings-python = "<2"
+mkdocs-gen-files = ">=0.5.0"
 jupyterlab = ">=4.0.5"
 makim = "1.13.0"
 douki = ">=0.6.0"

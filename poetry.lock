@@ -2107,6 +2107,21 @@ files = [
 mkdocs = "*"
 
 [[package]]
+name = "mkdocs-gen-files"
+version = "0.6.0"
+description = "MkDocs plugin to programmatically generate documentation pages during the build"
+optional = false
+python-versions = ">=3.9"
+groups = ["dev"]
+files = [
+    {file = "mkdocs_gen_files-0.6.0-py3-none-any.whl", hash = "sha256:815af15f3e2dbfda379629c1b95c02c8e6f232edf2a901186ea3b204ab1135b2"},
+    {file = "mkdocs_gen_files-0.6.0.tar.gz", hash = "sha256:52022dc14dcc0451e05e54a8f5d5e7760351b6701eff816d1e9739577ec5635e"},
+]
+
+[package.dependencies]
+mkdocs = ">=1.4.1"
+
+[[package]]
 name = "mkdocs-get-deps"
 version = "0.2.0"
 description = "MkDocs extension that lists all dependencies according to a mkdocs.yml file"
@@ -4368,4 +4383,4 @@ test = ["coverage (>=5.3.1)", "prompt-toolkit (>=3.0.29)", "pygments (>=2.2)", "
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<4"
-content-hash = "fc51e940d6971cbdbd7b25a2e19df5c0470bfe3e7466f7da044289549692f5e4"
+content-hash = "0b92261a9db2241109929859f922561c426a9507adb58abfa5778b9f4af10935"
