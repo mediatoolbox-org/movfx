@@ -46,7 +46,7 @@ plugins:
         python:
           paths: [../src]
 
-          import:
+          inventories:
             - https://docs.python.org/3/objects.inv
           options:
             docstring_style: numpy
@@ -55,7 +55,8 @@ plugins:
             show_root_heading: true
             show_root_toc_entry: true
             show_source: false
-            show_modules: true
+            extra:
+              show_modules: true
   - mkdocs-jupyter:
       execute: true
       ignore:
