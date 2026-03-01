@@ -11,28 +11,12 @@
             "files": ["src/movfx/__init__.py"],
             "from": "return \".*\"  # semantic-release",
             "to": "return \"${nextRelease.version}\"  # semantic-release",
-            "results": [
-              {
-                "file": "src/movfx/__init__.py",
-                "hasChanged": true,
-                "numMatches": 1,
-                "numReplacements": 1
-              }
-            ],
             "countMatches": true
           },
           {
             "files": ["pyproject.toml"],
             "from": "version = \".*\"  # semantic-release",
             "to": "version = \"${nextRelease.version}\"  # semantic-release",
-            "results": [
-              {
-                "file": "pyproject.toml",
-                "hasChanged": true,
-                "numMatches": 1,
-                "numReplacements": 1
-              }
-            ],
             "countMatches": true
           }
         ]
