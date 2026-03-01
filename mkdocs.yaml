@@ -9,6 +9,7 @@ site_dir: ./build
 nav:
   - index.md
   - Installation: installation.md
+  - Usage Guide: usage.md
   - Changelog: changelog.md
   - Contributing: contributing.md
   - API: api/references.md

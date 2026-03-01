@@ -71,7 +71,7 @@ jobs:
           poetry install
 
       - name: Run tests
-        run: makim tests.unittest
+        run: makim tests.unit
 
   linter-and-docs:
     needs: check-branch

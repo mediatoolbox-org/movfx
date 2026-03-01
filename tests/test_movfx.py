@@ -2,12 +2,9 @@
 title: Basic tests for MovFX package
 """
 
-import douki
-
 import movfx
 
 
-@douki
 def test_version() -> None:
     """
     title: Ensure the version string is returned correctly
@@ -17,9 +14,24 @@ def test_version() -> None:
     assert version == "0.1.0"
 
 
-@douki
 def test_import() -> None:
     """
     title: Ensure the package can be imported without errors
     """
     assert movfx is not None
+
+
+def test_create_transition_importable() -> None:
+    """
+    title: Ensure create_transition is accessible from the package
+    """
+    assert hasattr(movfx, "create_transition")
+    assert callable(movfx.create_transition)
+
+
+def test_effects_registry_importable() -> None:
+    """
+    title: Ensure EFFECTS registry is accessible from the package
+    """
+    assert hasattr(movfx, "EFFECTS")
+    assert len(movfx.EFFECTS) > 0
