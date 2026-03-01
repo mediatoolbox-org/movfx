@@ -1,10 +1,14 @@
-"""MovFX: Image transition effects with sound."""
+"""
+title: MovFX - Image transition effects with sound
+"""
 
 from importlib import metadata as importlib_metadata
 
 
 def get_version() -> str:
-    """Return the program version."""
+    """
+    title: Return the program version
+    """
     try:
         return importlib_metadata.version(__name__)
     except importlib_metadata.PackageNotFoundError:  # pragma: no cover

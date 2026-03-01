@@ -1,1 +1,3 @@
-"""MovFX core module."""
+"""
+title: MovFX core module
+"""

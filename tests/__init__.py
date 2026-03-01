@@ -1,1 +1,3 @@
-"""MovFX test suite."""
+"""
+title: MovFX test suite
+"""
