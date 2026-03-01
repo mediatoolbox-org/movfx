@@ -1,0 +1,11 @@
+name: movfx
+channels:
+  - nodefaults
+  - conda-forge
+dependencies:
+  - python
+  - pip
+  - poetry
+  - nodejs # used by semantic-release
+  - shellcheck
+  - ffmpeg
