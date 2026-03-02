@@ -37,7 +37,8 @@ class BaseEffect(ABC):
         """
         title: Initialize the effect with optional keyword arguments
         parameters:
-            kwargs: Effect-specific keyword arguments
+          **kwargs:
+            type: Any
         """
 
     @abstractmethod

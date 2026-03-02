@@ -34,9 +34,13 @@ class DissolveEffect(BaseEffect):
         """
         title: Initialize dissolve effect
         parameters:
-            grain_strength: >
-                Strength of the grain noise (0.0 to 1.0).
-                Default is 0.3.
+          grain_strength:
+            type: float
+            description: >-
+              Strength of the grain noise (0.0 to 1.0). Default is 0.3.
+
+          **kwargs:
+            type: Any
         """
         super().__init__(**kwargs)
         self.grain_strength = max(0.0, min(1.0, grain_strength))

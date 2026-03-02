@@ -42,8 +42,21 @@ def _output_name(
     """
     title: Build a descriptive output filename
     summary: |
-        Composes the name from image stems, effect name,
-        sound stem (if any), and extra kwargs like direction.
+      Composes the name from image stems, effect name,
+      sound stem (if any), and extra kwargs like direction.
+    parameters:
+      img_from:
+        type: Path
+      img_to:
+        type: Path
+      effect:
+        type: str
+      sound:
+        type: Path | None
+      **kwargs:
+        type: str
+    returns:
+      - type: str
     """
     parts = [img_from.stem, img_to.stem, effect]
     if sound is not None:
@@ -65,6 +78,9 @@ class TestEffectsNoSound:
     def test_effect_no_sound(self, effect_name: str) -> None:
         """
         title: Each effect produces a valid video without sound
+        parameters:
+          effect_name:
+            type: str
         """
         out = OUTPUT_DIR / _output_name(IMG_FROM, IMG_TO, effect_name)
         result = create_transition(
@@ -91,6 +107,9 @@ class TestEffectsWithSound:
     def test_effect_with_sound(self, effect_name: str) -> None:
         """
         title: Each effect produces a valid video with sound
+        parameters:
+          effect_name:
+            type: str
         """
         out = OUTPUT_DIR / _output_name(
             IMG_FROM, IMG_TO, effect_name, sound=SOUND
@@ -133,6 +152,11 @@ class TestDirectionalEffects:
     ) -> None:
         """
         title: Directional effects produce valid videos
+        parameters:
+          effect_name:
+            type: str
+          direction:
+            type: str
         """
         out = OUTPUT_DIR / _output_name(
             IMG_FROM,
@@ -164,6 +188,11 @@ class TestDirectionalEffects:
     ) -> None:
         """
         title: Directional effects with sound produce valid videos
+        parameters:
+          effect_name:
+            type: str
+          direction:
+            type: str
         """
         out = OUTPUT_DIR / _output_name(
             IMG_FROM,
@@ -197,6 +226,9 @@ class TestDissolveGrain:
     def test_dissolve_grain_strength(self, grain: float) -> None:
         """
         title: Dissolve with various grain strengths produces valid video
+        parameters:
+          grain:
+            type: float
         """
         out = OUTPUT_DIR / _output_name(
             IMG_FROM,

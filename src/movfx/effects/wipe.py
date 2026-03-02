@@ -39,9 +39,13 @@ class WipeEffect(BaseEffect):
         """
         title: Initialize wipe effect
         parameters:
-            direction: >
-                Direction of the wipe sweep.
-                Default is ``left`` (left-to-right reveal).
+          direction:
+            type: Literal[left, right, up, down]
+            description: >-
+              Direction of the wipe sweep. Default is ``left``
+              (left-to-right reveal).
+          **kwargs:
+            type: Any
         """
         super().__init__(**kwargs)
         self.direction = direction

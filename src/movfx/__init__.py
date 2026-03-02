@@ -11,6 +11,8 @@ from movfx.effects import EFFECTS
 def get_version() -> str:
     """
     title: Return the program version
+    returns:
+      - type: str
     """
     try:
         return importlib_metadata.version(__name__)

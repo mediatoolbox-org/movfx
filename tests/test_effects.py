@@ -58,6 +58,8 @@ class TestRenderFrame:
     def images(self) -> tuple[np.ndarray, np.ndarray]:
         """
         title: Small in-memory test arrays
+        returns:
+          - type: tuple[np.ndarray, np.ndarray]
         """
         a = np.full((8, 8, 3), 0, dtype=np.uint8)
         b = np.full((8, 8, 3), 255, dtype=np.uint8)
@@ -66,6 +68,9 @@ class TestRenderFrame:
     def test_fade_start(self, images: tuple[np.ndarray, np.ndarray]) -> None:
         """
         title: Fade at progress=0 returns the source image
+        parameters:
+          images:
+            type: tuple[np.ndarray, np.ndarray]
         """
         a, b = images
         result = FadeEffect().render_frame(a, b, 0.0)
@@ -74,6 +79,9 @@ class TestRenderFrame:
     def test_fade_end(self, images: tuple[np.ndarray, np.ndarray]) -> None:
         """
         title: Fade at progress=1 returns the destination image
+        parameters:
+          images:
+            type: tuple[np.ndarray, np.ndarray]
         """
         a, b = images
         result = FadeEffect().render_frame(a, b, 1.0)
@@ -82,6 +90,9 @@ class TestRenderFrame:
     def test_fade_mid(self, images: tuple[np.ndarray, np.ndarray]) -> None:
         """
         title: Fade at progress=0.5 returns the midpoint blend
+        parameters:
+          images:
+            type: tuple[np.ndarray, np.ndarray]
         """
         a, b = images
         result = FadeEffect().render_frame(a, b, 0.5)
@@ -92,6 +103,9 @@ class TestRenderFrame:
     ) -> None:
         """
         title: Dissolve output stays in valid uint8 range
+        parameters:
+          images:
+            type: tuple[np.ndarray, np.ndarray]
         """
         a, b = images
         result = DissolveEffect().render_frame(a, b, 0.5)
@@ -104,6 +118,9 @@ class TestRenderFrame:
     ) -> None:
         """
         title: Wipe left at progress=0 shows the source
+        parameters:
+          images:
+            type: tuple[np.ndarray, np.ndarray]
         """
         a, b = images
         result = WipeEffect(direction="left").render_frame(a, b, 0.0)
@@ -114,6 +131,9 @@ class TestRenderFrame:
     ) -> None:
         """
         title: Wipe left at progress=1 shows the destination
+        parameters:
+          images:
+            type: tuple[np.ndarray, np.ndarray]
         """
         a, b = images
         result = WipeEffect(direction="left").render_frame(a, b, 1.0)
@@ -122,6 +142,9 @@ class TestRenderFrame:
     def test_push_start(self, images: tuple[np.ndarray, np.ndarray]) -> None:
         """
         title: Push at progress=0 shows the source
+        parameters:
+          images:
+            type: tuple[np.ndarray, np.ndarray]
         """
         a, b = images
         result = PushEffect(direction="left").render_frame(a, b, 0.0)
@@ -130,6 +153,9 @@ class TestRenderFrame:
     def test_push_end(self, images: tuple[np.ndarray, np.ndarray]) -> None:
         """
         title: Push at progress=1 shows the destination
+        parameters:
+          images:
+            type: tuple[np.ndarray, np.ndarray]
         """
         a, b = images
         result = PushEffect(direction="left").render_frame(a, b, 1.0)
@@ -164,6 +190,9 @@ class TestDurationResolution:
     def test_sound_duration_override(self, sample_sound: Path) -> None:
         """
         title: Sound duration overrides when longer than requested
+        parameters:
+          sample_sound:
+            type: Path
         """
         effect = FadeEffect()
         with pytest.warns(UserWarning, match="shorter than the sound"):
@@ -175,6 +204,9 @@ class TestDurationResolution:
     ) -> None:
         """
         title: No warning when requested duration >= sound duration
+        parameters:
+          sample_sound:
+            type: Path
         """
         effect = FadeEffect()
         with warnings.catch_warnings():
@@ -200,6 +232,13 @@ class TestCreateTransition:
     ) -> None:
         """
         title: Basic transition produces a valid video file
+        parameters:
+          sample_images:
+            type: tuple[Path, Path]
+          tmp_dir:
+            type: Path
+          effect_name:
+            type: str
         """
         img_from, img_to = sample_images
         out = tmp_dir / f"out_{effect_name}.mp4"
@@ -227,6 +266,15 @@ class TestCreateTransition:
     ) -> None:
         """
         title: Directional effects produce valid video files
+        parameters:
+          sample_images:
+            type: tuple[Path, Path]
+          tmp_dir:
+            type: Path
+          effect_name:
+            type: str
+          kwargs:
+            type: dict
         """
         img_from, img_to = sample_images
         direction = kwargs["direction"]
@@ -251,6 +299,13 @@ class TestCreateTransition:
     ) -> None:
         """
         title: Transition with sound produces a video
+        parameters:
+          sample_images:
+            type: tuple[Path, Path]
+          sample_sound:
+            type: Path
+          tmp_dir:
+            type: Path
         """
         img_from, img_to = sample_images
         out = tmp_dir / "out_sound.mp4"
@@ -272,6 +327,11 @@ class TestCreateTransition:
     ) -> None:
         """
         title: Unknown effect name raises ValueError
+        parameters:
+          sample_images:
+            type: tuple[Path, Path]
+          tmp_dir:
+            type: Path
         """
         img_from, img_to = sample_images
         with pytest.raises(ValueError, match="Unknown effect"):

@@ -39,9 +39,12 @@ class PushEffect(BaseEffect):
         """
         title: Initialize push effect
         parameters:
-            direction: >
-                Direction the old image is pushed towards.
-                Default is ``left``.
+          direction:
+            type: Literal[left, right, up, down]
+            description: >-
+              Direction the old image is pushed towards. Default is ``left``.
+          **kwargs:
+            type: Any
         """
         super().__init__(**kwargs)
         self.direction = direction
