@@ -52,7 +52,7 @@ mkdocstrings-python = "<2"
 mkdocs-gen-files = ">=0.5.0"
 jupyterlab = ">=4.0.5"
 makim = "1.13.0"
-douki = ">=0.6.0"
+douki = ">=0.8.0"
 
 [tool.pytest.ini_options]
 testpaths = [

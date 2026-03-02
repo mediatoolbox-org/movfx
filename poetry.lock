@@ -754,19 +754,22 @@ files = [
 
 [[package]]
 name = "douki"
-version = "0.6.0"
+version = "0.8.0"
 description = "Documetatio from annotations"
 optional = false
-python-versions = "<4,>=3.9"
+python-versions = "<4,>=3.10"
 groups = ["dev"]
 files = [
-    {file = "douki-0.6.0-py3-none-any.whl", hash = "sha256:a1bf709e36ac9a153ac5c085ee71b81724c3deb0c81141b68e7b5547b2f04cd9"},
-    {file = "douki-0.6.0.tar.gz", hash = "sha256:3279b61b94fca29b3089edd7ba5a212b292a3b0c5c5214b341e9a32a1f85cbb2"},
+    {file = "douki-0.8.0-py3-none-any.whl", hash = "sha256:548a70382c9ed99d8638cadc1244486103a2e2a5e8ffda4066f459b0bc101858"},
+    {file = "douki-0.8.0.tar.gz", hash = "sha256:4119099b746b3144a48b8462378afc21e203470828b8a4e3dc3b88d75200c627"},
 ]
 
 [package.dependencies]
-types-pyyaml = ">=6"
-typing-extensions = ">=4.14.1"
+jsonschema = ">=4"
+pyyaml = ">=6"
+rich = ">=13"
+tomli = {version = ">=2.0.0", markers = "python_version < \"3.11\""}
+typer = ">=0.9"
 
 [[package]]
 name = "exceptiongroup"
@@ -4126,18 +4129,6 @@ rich = ">=12.3.0"
 shellingham = ">=1.3.0"
 
 [[package]]
-name = "types-pyyaml"
-version = "6.0.12.20250915"
-description = "Typing stubs for PyYAML"
-optional = false
-python-versions = ">=3.9"
-groups = ["dev"]
-files = [
-    {file = "types_pyyaml-6.0.12.20250915-py3-none-any.whl", hash = "sha256:e7d4d9e064e89a3b3cae120b4990cd370874d2bf12fa5f46c97018dd5d3c9ab6"},
-    {file = "types_pyyaml-6.0.12.20250915.tar.gz", hash = "sha256:0f8b54a528c303f0e6f7165687dd33fafa81c807fcac23f632b63aa624ced1d3"},
-]
-
-[[package]]
 name = "typing-extensions"
 version = "4.15.0"
 description = "Backported and Experimental Type Hints for Python 3.9+"
@@ -4383,4 +4374,4 @@ test = ["coverage (>=5.3.1)", "prompt-toolkit (>=3.0.29)", "pygments (>=2.2)", "
 [metadata]
 lock-version = "2.1"
 python-versions = ">=3.10,<4"
-content-hash = "0b92261a9db2241109929859f922561c426a9507adb58abfa5778b9f4af10935"
+content-hash = "6bc737a1159587063db431c108647e76f4fe5ba3415a761b2ef9f3240978bdb1"
